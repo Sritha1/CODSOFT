@@ -1,0 +1,25 @@
+
+from tkinter import *
+import random
+win=Tk()
+win.geometry('775x450')
+win.config(bg='lavender')
+win.title('Rock Paper Scissors Game')
+def final_result(p_choice):
+    available_choices=['Rock','Paper','Scissors']
+    com_choice=random.choice(available_choices)
+    result=''
+    if(p_choice==com_choice):
+        result="It's a tie !!"
+    elif((p_choice=='Rock' and com_choice=='Paper') or (p_choice=='Paper' and com_choice=='Scissors') or (p_choice=='Scissors' and com_choice=='Rock')):
+        result='You won!!'
+    else:
+        result='You Lost!!'
+    r_l.config(text=f"Computer chose{com_choice}\n{result}")
+l=Label(win,text='Enter your Choice',font=('Cascadia Mono',25),bg='navy blue',fg='white').place(x=200,y=70)
+b1=Button(win,text='Rock',font=('Cascadia Mono',20),bg='coral',command=lambda:final_result('Rock')).place(x=80,y=175)
+b2=Button(win,text='Paper',font=('Cascadia Mono',20),bg='coral',command=lambda:final_result('Paper')).place(x=300,y=175)
+b3=Button(win,text='Scissors',font=('Cascadia Mono',20),bg='coral',command=lambda:final_result('Scissors')).place(x=520,y=175)
+r_l=Label(win,text='WELCOME!!',bg='green',font=('Casadia Mono',20))
+r_l.place(x=270,y=300,height=80)
+win.mainloop()

@@ -1,0 +1,49 @@
+from tkinter import *
+win=Tk()
+win.title('Simple Calculator')
+win.geometry('370x525')
+win.config(bg="#17161b")
+result=Label(win,width=25,height=2,text=" ",font=("arial",30),fg="white",bg="#17161b")
+result.pack()
+a=""
+def display(v):
+    global a
+    a+=v
+    result.config(text=a)
+def clear():
+    global a
+    a=""
+    result.config(text=a)
+def calculate():
+    global a
+    r=""
+    if a!="":
+        try:
+            r=eval(a)
+        except:
+            r="error"
+            a=""
+    result.config(text=r)
+    a=""
+b1=Button(win,width=10,height=3,text="C",fg="#fff",bg="#3697f5",bd=1,command=clear).place(x=10,y=100)
+b2=Button(win,width=10,height=3,text="/",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("/")).place(x=100,y=100)
+b3=Button(win,width=10,height=3,text="%",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("%")).place(x=190,y=100)
+b4=Button(win,width=10,height=3,text="*",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("*")).place(x=280,y=100)
+b5=Button(win,width=10,height=3,text="7",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("7")).place(x=10,y=170)
+b6=Button(win,width=10,height=3,text="8",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("8")).place(x=100,y=170)
+b7=Button(win,width=10,height=3,text="9",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("9")).place(x=190,y=170)
+b8=Button(win,width=10,height=3,text="+",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("+")).place(x=280,y=170)
+b9=Button(win,width=10,height=3,text="4",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("4")).place(x=10,y=240)
+b10=Button(win,width=10,height=3,text="5",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("5")).place(x=100,y=240)
+b11=Button(win,width=10,height=3,text="6",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("6")).place(x=190,y=240)
+b12=Button(win,width=10,height=3,text="-",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("-")).place(x=280,y=240)
+b13=Button(win,width=10,height=3,text="3",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("3")).place(x=10,y=310)
+b14=Button(win,width=10,height=3,text="2",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("2")).place(x=100,y=310)
+b15=Button(win,width=10,height=3,text="1",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("1")).place(x=190,y=310)
+b20=Button(win,width=10,height=3,text="(",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("(")).place(x=280,y=310)
+b17=Button(win,width=10,height=3,text="0",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("0")).place(x=10,y=380)
+b18=Button(win,width=10,height=3,text="00",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display("00")).place(x=100,y=380)
+b19=Button(win,width=10,height=3,text=".",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display(".")).place(x=190,y=380)
+b21=Button(win,width=10,height=3,text=")",fg="#fff",bg="#2a2d36",bd=1,command=lambda: display(")")).place(x=280,y=380)
+b16=Button(win,width=23,height=3,text="=",fg="#fff",bg="#fe9037",bd=1,command=lambda: calculate()).place(x=190,y=450)
+win.mainloop()

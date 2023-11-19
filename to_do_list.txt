@@ -1,0 +1,27 @@
+from tkinter import *
+from tkinter import messagebox
+root=Tk()
+root.geometry('500x400')
+root.title('To-Do-List')
+def add():
+    task=e.get()
+    if task:
+        lb.insert(END,task)
+        e.delete(0,END)
+    else:
+        messagebox.showwarning("Warning!","Enter the task!")
+def remove():
+    select=lb.curselection()
+    if select:
+        lb.delete(select)
+    else:
+        messagebox.showwarning("Warning!",'Select the task to remove!')
+b1=Button(root,text='Add Task',bg='light cyan',font=('Cascadia Mono',12),command=add)
+b1.place(x=130,y=30)
+b2=Button(root,text='Remove Task',bg='light cyan',font=('Cascadia Mono',12),command=remove)
+b2.place(x=130,y=130)
+e=Entry(root,width=30,bg='mint cream')
+e.place(x=100,y=80,height=30,width=300)
+lb=Listbox(root,selectmode=SINGLE,width=50,height=10,bg='mint cream')
+lb.place(x=100,y=180)
+root.mainloop()
